@@ -1,0 +1,66 @@
+:root {
+  --background-color:  #71dbf0; /* Definišite varijablu za glavnu boju */
+  --header-footer:  #71f084;
+  --border:  #035e11;
+  --select-color: #e8e86f;
+}
+@import url("metrics.css");
+
+/* Postavite pozadinu na svetlo plavu boju */
+body {
+    background-color: var(--background-color); /* Možete prilagoditi boju prema potrebi */
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Stilizujte naslov u gornjem delu sredine */
+  h1 {
+    text-align: center;
+    padding: 20px;
+    background-color: var(--header-footer);
+    border: 2px solid var(--border);
+  }
+
+  h4 {
+    text-align: center;
+    padding: 5px;
+    font-size: medium bold;
+  }
+  
+  /* Stilizujte kombo box */
+  select {
+    display: block;
+    margin: 10px auto; /* Centrirajte kombo box horizontalno */
+    padding: 5px;
+    font-size: 16px;
+    border: 1px solid var(--border);/* Dodajte sivu ivicu oko kombo box-a */
+    border-radius: 5px; /* Zaobljeni uglovi */
+    width: 200px; /* Prilagodite širinu prema potrebi */
+    background-color:  var(--select-color); /* Bela pozadina */
+  }
+
+  table {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  #submit-button {
+    background-color: var(--border); /* Boja pozadine */
+    color: #fff; /* Boja teksta */
+    padding: 5px 10px; /* Prostor oko teksta */
+    border: none; /* Bez ivice */
+    cursor: pointer; /* Promenite kursor kad se pređe preko dugmeta */
+    margin: 5px auto; /* Centriranje po horizontali */
+    display: block; /* Pretvara dugme u blok element kako bi se primenio margin: 0 auto; */
+}
+
+  footer {
+    position: fixed; /* Postavite poziciju na fiksnu */
+    bottom: 0; /* Postavite ga na dno stranice */
+    left: 0; /* Postavite ga na levi rub stranice */
+    width: 100%; /* Širina 100% kako bi popunio celu širinu ekrana */
+    background-color: var(--header-footer); /* Boja pozadine */
+    color: black; /* Boja teksta */
+    text-align: right; /* Centralno poravnanje teksta */
+    padding: 10px; /* Prostor oko teksta */
+}

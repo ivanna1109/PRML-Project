@@ -1,0 +1,12 @@
+.result_table{
+    margin-left: auto;
+    margin-right: auto;
+    border: 2px solid var(--border);
+    background-color: var(--header-footer);
+}
+
+.result_table td, th {
+    text-align: center;
+    border: 2px solid var(--border);
+    padding: 5px
+}
