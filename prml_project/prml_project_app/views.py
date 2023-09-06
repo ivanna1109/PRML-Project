@@ -11,9 +11,10 @@ def get_results(request):
     dataset = request.POST.get('dsname')
     binary = request.POST.get('binarySVM')
     multi = request.POST.get('multiclassSVM')
-    results = [1, 2, 3, 4]
+    results = mp.get_results(dataset, binary, multi)
     context = {'results':results}
     return render(request, 'index.html', context)
+
 
 
 

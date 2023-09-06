@@ -1,4 +1,8 @@
 import svm_classification as svm_class
+import svm_classification as svm_class
+
+def get_results(dataset, binary, multi):
+    pass
 
 def main():
     #print("\n****************************************Binary SVM*****************************************\n")
