@@ -44,6 +44,7 @@ body {
     margin-right: auto;
   }
 
+
   #submit-button {
     background-color: var(--border); /* Boja pozadine */
     color: #fff; /* Boja teksta */

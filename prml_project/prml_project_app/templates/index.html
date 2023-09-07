@@ -40,9 +40,12 @@
             {% endfor %}  
         </select>
       </td>
-    </tr>
-    <tr>
       <td>
+        <input type="submit" value="Show Results" id="submit-button"/>
+      </td>
+    </tr>
+      <tr>
+        <td>
         <h4>Choose multiclass SVM:</h4>
       </td>
       <td>
@@ -53,9 +56,13 @@
             {% endfor %}  
         </select>
       </td>
+      </tr>
+      <tr>
+      <td>
+       
+      </td>
     </tr>
   </table>
-  <input type="submit" value="Show Results" id="submit-button"/>
 </form><br>
 
 {% if results != null %}
@@ -67,25 +74,18 @@
       <th>Recall</th>
       <th>F1 Score</th>
     </tr>
+    {% for res in results %}
     <tr>
-      <th>
-        Implemented Linear
-      </th>
-      {% for res in results %}
-      <td>{{res}}</td>
+      {% for item in res%}
+      <td>{{item}}</td>
       {% endfor %}
     </tr>
-    <tr>
-      <th>
-        Built-in Linear
-      </th>
-    </th>
-    {% for res in results %}
-    <td>{{res}}</td>
     {% endfor %}
-    </tr>
   </table>
 {% endif %}
+{% if message %}
+  <h4>{{message}}</h4>
+  {% endif %}
   <footer>
     <p>&copy; 2023 Vladimir Kovačević & Ivana Milutinović</p>
   </footer>

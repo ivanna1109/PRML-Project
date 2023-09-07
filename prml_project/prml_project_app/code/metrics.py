@@ -36,28 +36,44 @@ def split_dataset(X, y, curr_fold, num_folds):
 
     return X_train, X_test, y_train, y_test
 
-def cross_val_scores(linear, linear_non_sep, kernel, built_in, crossval):
-    print('***** Linear:')
-    crossvalidation(linear, crossval[0], crossval[1])
-    print('***** NonSep:')
-    crossvalidation(linear_non_sep, crossval[0], crossval[1])
-    print('***** Kernel:')
-    crossvalidation(kernel, crossval[0], crossval[1])
-    print('***** Built-in Kernel SVM:')
-    crossvalidation(built_in, crossval[0], crossval[1])
+def cross_val_scores(linear=None, linear_non_sep=None, kernel=None, built_in=None, crossval=None):
+    if (linear != None):
+        print('***** Linear:')
+        crossvalidation(linear, crossval[0], crossval[1])
+    if (linear_non_sep != None):
+        print('***** NonSep:')
+        crossvalidation(linear_non_sep, crossval[0], crossval[1])
+    if (kernel != None):
+        print('***** Kernel:')
+        crossvalidation(kernel, crossval[0], crossval[1])
+    if (built_in != None):
+        print('***** Built-in Kernel SVM:')
+        crossvalidation(built_in, crossval[0], crossval[1])
     print("-"*90)
 
 def test_implementation(svm, X_test, y_test):
-    print(f'Accuracy: {svm.accuracy(X_test, y_test)}')
-    print(f'Precision: {svm.precision(X_test, y_test)}')
-    print(f'Recall: {svm.recall(X_test, y_test)}')
-    print(f'F1 Score: {svm.f1(X_test, y_test)}')
+    accuracy = round(svm.accuracy(X_test, y_test),5)
+    precision = round(svm.precision(X_test, y_test),5)
+    recall = round(svm.recall(X_test, y_test), 5)
+    f1 = round(svm.f1(X_test, y_test), 5)
+    print(f'Accuracy: {accuracy}')
+    print(f'Precision: {precision}')
+    print(f'Recall: {recall}')
+    print(f'F1 Score: {f1}')
     print(f'Confusion Matrix:\n {svm.confusion_matrix(X_test, y_test)}\n')
+    list_of_metrics = [accuracy, precision, recall, f1]
+    return list_of_metrics
 
 def built_svm_metrics(y_test, y_pred_built_in_kernel_svm):
-    print("Accuracy:", accuracy_score(y_test, y_pred_built_in_kernel_svm))
-    print("Precision:", precision_score(y_test, y_pred_built_in_kernel_svm, average='macro'))
-    print("Recall:", recall_score(y_test, y_pred_built_in_kernel_svm, average='macro'))
-    print("F1 Score:", f1_score(y_test, y_pred_built_in_kernel_svm, average='macro'))
+    accuracy = round(accuracy_score(y_test, y_pred_built_in_kernel_svm),5)
+    precision = round(precision_score(y_test, y_pred_built_in_kernel_svm, average='macro'),5)
+    recall = round(recall_score(y_test, y_pred_built_in_kernel_svm, average='macro'),5)
+    f1 = round(f1_score(y_test, y_pred_built_in_kernel_svm, average='macro'),5)
+    print("Accuracy:", accuracy)
+    print("Precision:", precision)
+    print("Recall:", recall)
+    print("F1 Score:", f1)
     print("Confusion Matrix:\n", confusion_matrix(y_test, y_pred_built_in_kernel_svm))
     print()
+    list_of_metrics = [accuracy, precision, recall, f1]
+    return list_of_metrics

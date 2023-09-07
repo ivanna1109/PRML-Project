@@ -1,8 +1,24 @@
-import svm_classification as svm_class
-import svm_classification as svm_class
+from . import svm_classification as svm_class
+from . import web_functions as webf
 
 def get_results(dataset, binary, multi):
-    pass
+    return get_results_for_dataset(dataset, binary, multi)
+        
+
+def get_results_for_dataset(dataset, binary, multi):
+    list_of_impl = []
+    if (binary =='Linear'):
+        list_of_impl = webf.iris_binary_svm(dataset, linear=True)
+        print(list_of_impl)
+    elif (binary =='Linear Non Separable'):
+        list_of_impl = webf.iris_binary_svm(dataset, linear_non_sep=True)
+    elif (binary =='Kernel'):
+        list_of_impl = webf.iris_binary_svm(dataset,kernel=True)
+    if (multi == 'Linear Non Separable'):
+        list_of_impl.extend(webf.iris_multi_svm(dataset, linear=True))
+    elif (multi == 'Kernel'):
+        list_of_impl.extend(webf.iris_multi_svm(dataset, kernel=True))
+    return list_of_impl
 
 def main():
     print("\n****************************************Binary SVM*****************************************\n")

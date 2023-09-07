@@ -3,6 +3,8 @@
     margin-right: auto;
     border: 2px solid var(--border);
     background-color: var(--header-footer);
+    width: 600px;
+    height:400px
 }
 
 .result_table td, th {

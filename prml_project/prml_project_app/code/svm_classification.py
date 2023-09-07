@@ -1,8 +1,10 @@
-from LinearSVM import LinearSVM
-from LinearNonSepSVM import LinearNonSepSVM, OneVsOneSVM
-from KernelSVM import KernelSVM, OneVsOneKernelSVM
-import datasets_load as dl
-import metrics as metrics
+from . import LinearSVM
+from . import LinearNonSepSVM
+from .LinearNonSepSVM import OneVsOneSVM
+from . import KernelSVM
+from .KernelSVM import OneVsOneKernelSVM
+from . import datasets_load as dl
+from . import metrics as metrics
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
 
