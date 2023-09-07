@@ -3,8 +3,8 @@
     margin-right: auto;
     border: 2px solid var(--border);
     background-color: var(--header-footer);
-    width: 600px;
-    height:400px
+    width: 500px;
+    height:auto
 }
 
 .result_table td, th {
@@ -12,3 +12,33 @@
     border: 2px solid var(--border);
     padding: 5px
 }
+
+.matrix_table {
+    width: 80%; /* Postavite željenu širinu */
+    height: auto; /* Postavite željenu visinu */
+    overflow: auto; /* Dodajte scroll traku ako je tabela prevelika za kontejner */
+    margin-right: 20px; /* Dodajte razmak između tabela */
+}
+
+.custom-table {
+    background-color:aquamarine; /* Postavite boju pozadine */
+    border: 2px solid var(--border);
+    width: 20%;
+    table-layout: fixed; /* Fiksirajte širinu tabele */
+}
+
+.custom-table th,.custom-table td, .custom-table tr {
+    text-align: center;
+    padding: 8px;
+    border: 2px solid var(--border);
+    width: 50px; /* Postavite željenu širinu ćelija */
+    height: 50px; /* Postavite željenu visinu ćelija */
+}
+
+#table-for-matrices {
+    margin-left: auto;
+    margin-right: auto;
+    width: 500px;
+    height: auto;
+}
+

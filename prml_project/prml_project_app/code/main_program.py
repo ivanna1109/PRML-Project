@@ -7,18 +7,23 @@ def get_results(dataset, binary, multi):
 
 def get_results_for_dataset(dataset, binary, multi):
     list_of_impl = []
+    list_of_conf_matrix = []
     if (binary =='Linear'):
-        list_of_impl = webf.iris_binary_svm(dataset, linear=True)
-        print(list_of_impl)
+        list_of_impl, list_of_conf_matrix = webf.iris_binary_svm(dataset, linear=True)
+        print(list_of_conf_matrix)
     elif (binary =='Linear Non Separable'):
-        list_of_impl = webf.iris_binary_svm(dataset, linear_non_sep=True)
+        list_of_impl, list_of_conf_matrix = webf.iris_binary_svm(dataset, linear_non_sep=True)
     elif (binary =='Kernel'):
-        list_of_impl = webf.iris_binary_svm(dataset,kernel=True)
+        list_of_impl,list_of_conf_matrix = webf.iris_binary_svm(dataset,kernel=True)
     if (multi == 'Linear Non Separable'):
-        list_of_impl.extend(webf.iris_multi_svm(dataset, linear=True))
+        list_i_tmp, list_conf_tmp = webf.iris_multi_svm(dataset, linear=True)
+        list_of_impl.extend(list_i_tmp)
+        list_of_conf_matrix.extend(list_conf_tmp)
     elif (multi == 'Kernel'):
-        list_of_impl.extend(webf.iris_multi_svm(dataset, kernel=True))
-    return list_of_impl
+        list_i_tmp, list_conf_tmp = webf.iris_multi_svm(dataset, kernel=True)
+        list_of_impl.extend(list_i_tmp)
+        list_of_conf_matrix.extend(list_conf_tmp)
+    return list_of_impl, list_of_conf_matrix
 
 def main():
     print("\n****************************************Binary SVM*****************************************\n")

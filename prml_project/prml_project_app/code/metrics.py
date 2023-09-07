@@ -1,6 +1,7 @@
 from sklearn.model_selection import KFold
 from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score, confusion_matrix
 import numpy as np
+import pandas as pd
 
 def crossvalidation(model, X, y):
     k = 10
@@ -56,12 +57,15 @@ def test_implementation(svm, X_test, y_test):
     precision = round(svm.precision(X_test, y_test),5)
     recall = round(svm.recall(X_test, y_test), 5)
     f1 = round(svm.f1(X_test, y_test), 5)
+    confusion_matrix = svm.confusion_matrix(X_test, y_test)
     print(f'Accuracy: {accuracy}')
     print(f'Precision: {precision}')
     print(f'Recall: {recall}')
     print(f'F1 Score: {f1}')
-    print(f'Confusion Matrix:\n {svm.confusion_matrix(X_test, y_test)}\n')
-    list_of_metrics = [accuracy, precision, recall, f1]
+    print(f'Confusion Matrix:\n {confusion_matrix}\n')
+    df_cf = pd.DataFrame(confusion_matrix)
+    html_table_cm = df_cf.to_html(classes='table table-bordered custom-table', escape=False)
+    list_of_metrics = [accuracy, precision, recall, f1, html_table_cm]
     return list_of_metrics
 
 def built_svm_metrics(y_test, y_pred_built_in_kernel_svm):
@@ -69,11 +73,14 @@ def built_svm_metrics(y_test, y_pred_built_in_kernel_svm):
     precision = round(precision_score(y_test, y_pred_built_in_kernel_svm, average='macro'),5)
     recall = round(recall_score(y_test, y_pred_built_in_kernel_svm, average='macro'),5)
     f1 = round(f1_score(y_test, y_pred_built_in_kernel_svm, average='macro'),5)
+    conf_matrix = confusion_matrix(y_test, y_pred_built_in_kernel_svm)
     print("Accuracy:", accuracy)
     print("Precision:", precision)
     print("Recall:", recall)
     print("F1 Score:", f1)
-    print("Confusion Matrix:\n", confusion_matrix(y_test, y_pred_built_in_kernel_svm))
+    print("Confusion Matrix:\n", confusion_matrix)
     print()
-    list_of_metrics = [accuracy, precision, recall, f1]
+    df_cf = pd.DataFrame(conf_matrix)
+    html_table_cm = df_cf.to_html(classes='table table-bordered custom-table', escape=False)
+    list_of_metrics = [accuracy, precision, recall, f1, html_table_cm]
     return list_of_metrics

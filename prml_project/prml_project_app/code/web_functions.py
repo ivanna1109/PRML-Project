@@ -39,17 +39,22 @@ def iris_binary_svm(dataset = None, linear=False, linear_non_sep=False, kernel =
     y_pred_built_in_kernel_svm = built_in_kernel_svm.predict(X_test)
     list_for_built = metrics.built_svm_metrics(y_test, y_pred_built_in_kernel_svm)
     list_of_impl = []
+    list_of_conf_matrix = []
     if (list_for_linear != None):
         linear_list = ['Linear', list_for_linear[0], list_for_linear[1], list_for_linear[2], list_for_linear[3]]
         list_of_impl.append(linear_list)
+        list_of_conf_matrix.append(list_for_linear[4])
     if (list_for_non_sep != None):
         linear_non_list = ['Linear Non Separable', list_for_non_sep[0], list_for_non_sep[1], list_for_non_sep[2], list_for_non_sep[3]]
         list_of_impl.append(linear_non_list)
+        list_of_conf_matrix.append(list_for_non_sep[4])
     if (list_for_kernel != None):
         kernel_list = ['Kernel', list_for_kernel[0], list_for_kernel[1], list_for_kernel[2], list_for_kernel[3]]
         list_of_impl.append(kernel_list)
+        list_of_conf_matrix.append(list_for_kernel[4])
     list_of_impl.append(['Built-in Kernel SVM',  list_for_built[0], list_for_built[1], list_for_built[2], list_for_built[3]])
-    return list_of_impl
+    list_of_conf_matrix.append(list_for_built[4])
+    return list_of_impl, list_of_conf_matrix
 
 def iris_multi_svm(dataset, linear=False, kernel = False):
     linear_non_sep_svm_one_vs_one = None; built_in_lin_one_vs_one = None; kernel_one_vs_one_svm = None; built_in_kernel_one_vs_one_svm = None
