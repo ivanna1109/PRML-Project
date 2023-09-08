@@ -14,7 +14,7 @@ def get_results(request):
     dataset = request.POST.get('dsname')
     binary = request.POST.get('binarySVM')
     multi = request.POST.get('multiclassSVM')
-    metrices_results, conf_matrix_results = mp.get_results(dataset, binary, multi)
+    metrices_results, conf_matrix_results, crossval_means, crossval_scores = mp.get_results(dataset, binary, multi)
     print(metrices_results)
     print(conf_matrix_results)
     message = False
@@ -27,6 +27,7 @@ def get_results(request):
     for i in range(1, len(metrices_results)+1):
         number_of_algorithms.append(i)
     context = {'results':metrices_results, 'confusion_matrices': conf_matrix_results, 
+               'crossval_means': crossval_means, 'crossval_scores': crossval_scores,
                'number_of_algorithms': number_of_algorithms, 'dataset': dataset,
                'datasets': datasets, 'binary_svms': binary_svms, 
                'multiclass_svms': multiclass_svms, 'message': message}

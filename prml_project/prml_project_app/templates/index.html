@@ -67,7 +67,29 @@
 </form><br>
 
 {% if results != null %}
-  <h4>Results of choosen implementations for {{dataset}} dataset:</h4><br>
+  <h4>Results of choosen implementations for {{dataset}} dataset:</h4>
+  <table class="result_table">
+    <tr>
+      <th></th>
+      {% for i in number_of_algorithms %}
+      <th>
+        {{i}}. model
+      </th>
+      {% endfor %}
+    </tr>
+    <tr>
+      <td>Crossvalidation mean scores</td>
+      {% for mean in crossval_means %}
+          <td>{{mean}}</td>
+      {%endfor%}
+    </tr>
+    <tr>
+      <td>Crossvalidation scores (k = 10)</td>
+      {% for score in crossval_scores %}
+          <td>{{score}}</td>
+      {%endfor%}
+    </tr>
+  </table><br>
   <table class="result_table">
     <tr>
       <th>Models</th>
@@ -84,18 +106,18 @@
     </tr>
     {% endfor %}
   </table><br>
-  <h4>Additional results</h4>
-  <table id="table-for-matrices">
+  <h4>Confusion matrices</h4>
+  <table class="result_table">
     <tr>
-      <td></td>
+      <th></th>
       {% for i in number_of_algorithms %}
-      <td style="text-align: center;">
-        {{i}}. implementation
-      </td>
+      <th>
+        {{i}}. model
+      </th>
     {% endfor %}
   </tr>
     <tr>
-      <td>Confusion matrices</td>
+      <td></td>
       {% for matrix in confusion_matrices %}
       <td>
         {{ matrix | safe }}

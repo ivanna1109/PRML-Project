@@ -65,7 +65,7 @@ def test_implementation(svm, X_test, y_test):
     print(f'F1 Score: {f1}')
     print(f'Confusion Matrix:\n {confusion_matrix}\n')
     df_cf = pd.DataFrame(confusion_matrix)
-    html_table_cm = df_cf.to_html(classes='table table-bordered custom-table', escape=False)
+    html_table_cm = df_cf.to_html(classes='table custom-table', escape=False)
     list_of_metrics = [accuracy, precision, recall, f1, html_table_cm]
     return list_of_metrics
 
@@ -82,6 +82,6 @@ def built_svm_metrics(y_test, y_pred_built_in_kernel_svm):
     print("Confusion Matrix:\n", confusion_matrix)
     print()
     df_cf = pd.DataFrame(conf_matrix)
-    html_table_cm = df_cf.to_html(classes='table table-bordered custom-table', escape=False)
+    html_table_cm = df_cf.to_html(classes='table custom-table', escape=False)
     list_of_metrics = [accuracy, precision, recall, f1, html_table_cm]
     return list_of_metrics
