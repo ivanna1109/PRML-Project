@@ -19,8 +19,9 @@ def iris_binary_svm(dataset = None, linear=False, linear_non_sep=False, kernel =
     built_in_kernel_svm = svm.SVC(C=1.0, kernel='poly', coef0=1, gamma=1, degree=3)
 
     X_train, X_test, y_train, y_test, crossval = dataset_loading(dataset, False)
-   # print("\n******************************Crossvalidation for binary SVM*******************************\n")
-    #metrics.cross_val_scores(linear_svm, linear_non_sep_svm, kernel_svm, built_in_kernel_svm, crossval)
+    print("\n******************************Crossvalidation for binary SVM*******************************\n")
+    metrics.cross_val_scores(linear_svm, linear_non_sep_svm, kernel_svm, built_in_kernel_svm, crossval)
+    return
     list_for_linear = None; list_for_non_sep = None; list_for_kernel = None; 
     if (linear):
         linear_svm.fit(X_train, y_train)
@@ -67,8 +68,8 @@ def iris_multi_svm(dataset, linear=False, kernel = False):
 
     X_train_m, X_test_m, y_train_m, y_test_m , crossval= dataset_loading(dataset, True)
     print("\n***************************Crossvalidation for multiclass SVM****************************\n")
-    #metrics.cross_val_scores(linear_non_sep_svm_one_vs_one, built_in_lin_one_vs_one, kernel_one_vs_one_svm, built_in_kernel_one_vs_one_svm, crossval)
-
+    metrics.cross_val_scores(linear_non_sep_svm_one_vs_one, built_in_lin_one_vs_one, kernel_one_vs_one_svm, built_in_kernel_one_vs_one_svm, crossval)
+    return
     if (linear):
         linear_non_sep_svm_one_vs_one.fit(X_train_m, y_train_m)
         built_in_lin_one_vs_one.fit(X_train_m, y_train_m)
@@ -113,4 +114,4 @@ def dataset_loading(dataset, multi):
         return dl.load_digits_multi()
 
 if __name__ == '__main__':
-    iris_binary_svm(True, True)
+    iris_binary_svm('Iris', linear=True, linear_non_sep=True, kernel=True)

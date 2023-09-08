@@ -17,7 +17,8 @@ def crossvalidation(model, X, y):
 
     mean_score = np.mean(crossval_scores)
     print("Cross validation score:", crossval_scores)
-    print("Cross validation mean score:", mean_score)
+    print("Cross validation mean score:", round(mean_score,5))
+
 
 def split_dataset(X, y, curr_fold, num_folds):
     num_of_instances = len(X)

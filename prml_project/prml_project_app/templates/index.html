@@ -67,6 +67,7 @@
 </form><br>
 
 {% if results != null %}
+  <h4>Results of choosen implementations for {{dataset}} dataset:</h4><br>
   <table class="result_table">
     <tr>
       <th>Models</th>
@@ -83,17 +84,18 @@
     </tr>
     {% endfor %}
   </table><br>
-  <h4>Confusion matrices</h4>
+  <h4>Additional results</h4>
   <table id="table-for-matrices">
     <tr>
+      <td></td>
+      {% for i in number_of_algorithms %}
       <td style="text-align: center;">
-        Confusion Matrix 1
+        {{i}}. implementation
       </td>
-      <td style="text-align: center;">
-        Confusion Matrix 2
-      </td>
-    </tr>
+    {% endfor %}
+  </tr>
     <tr>
+      <td>Confusion matrices</td>
       {% for matrix in confusion_matrices %}
       <td>
         {{ matrix | safe }}

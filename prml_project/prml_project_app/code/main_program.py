@@ -15,11 +15,11 @@ def get_results_for_dataset(dataset, binary, multi):
         list_of_impl, list_of_conf_matrix = webf.iris_binary_svm(dataset, linear_non_sep=True)
     elif (binary =='Kernel'):
         list_of_impl,list_of_conf_matrix = webf.iris_binary_svm(dataset,kernel=True)
-    if (multi == 'Linear Non Separable'):
+    if (multi == 'Linear Non Separable One VS One' ):
         list_i_tmp, list_conf_tmp = webf.iris_multi_svm(dataset, linear=True)
         list_of_impl.extend(list_i_tmp)
         list_of_conf_matrix.extend(list_conf_tmp)
-    elif (multi == 'Kernel'):
+    elif (multi == 'Kernel One VS One'):
         list_i_tmp, list_conf_tmp = webf.iris_multi_svm(dataset, kernel=True)
         list_of_impl.extend(list_i_tmp)
         list_of_conf_matrix.extend(list_conf_tmp)
