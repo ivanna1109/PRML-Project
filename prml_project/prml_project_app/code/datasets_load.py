@@ -131,6 +131,25 @@ def load_digits_multi():
     cross_val = [X, y]
     return X_train, X_test, y_train, y_test, cross_val
 
+#----------------------------------LOADING DATA FOR VISUALIZATION-------------------------------------------
+def load_iris_for_visualization():
+    iris = datasets.load_iris()
+    X = iris.data
+    y = iris.target
+    features_name = iris.feature_names
+    return X, y, features_name
+
+def load_wine_for_visualization():
+    wines = pd.read_csv('D:\LetnjiSemestar/PRML/ProjekatSVM/PRML-Project/prml_project/prml_project_app/code/wine.csv')
+    return wines
+
+def load_titanic_for_visualization():
+    titanic = sns.load_dataset('titanic')
+    return titanic
+
+def load_digits_for_vizualization():
+    digits = datasets.load_digits()
+    return digits
 
 if __name__ == '__main__':
     pass
