@@ -24,15 +24,12 @@ def split_dataset(X, y, curr_fold, num_folds):
     num_of_instances = len(X)
     num_of_instances_per_fold = num_of_instances // num_folds
 
-    # Odredite indekse početka i kraja trenutnog folda
     start_index = curr_fold * num_of_instances_per_fold
     end_index = (curr_fold + 1) * num_of_instances_per_fold
 
-    # Podelite podatke na trening i test skup
     X_test = X[start_index:end_index]
     y_test = y[start_index:end_index]
 
-    # Konstruišite trening skup tako da isključite trenutni fold
     X_train = np.concatenate([X[:start_index], X[end_index:]], axis=0)
     y_train = np.concatenate([y[:start_index], y[end_index:]], axis=0)
 
