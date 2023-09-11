@@ -15,8 +15,6 @@ def get_results(request):
     binary = request.POST.get('binarySVM')
     multi = request.POST.get('multiclassSVM')
     metrices_results, conf_matrix_results, crossval_means, crossval_scores = mp.get_results(dataset, binary, multi)
-    print(metrices_results)
-    print(conf_matrix_results)
     message = False
     if not metrices_results:
         message = 'You have to choose dataset and type of SVM implementation to see metrics!'

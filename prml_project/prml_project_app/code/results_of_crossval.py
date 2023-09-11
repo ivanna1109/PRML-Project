@@ -16,9 +16,8 @@ def crossval_binary(dataset,linear=False, linear_non_sep=False, kernel=False):
         result_impl = choosen_impl.split('|')
         result_built = built_in_line.split('|')
         result1, result2 = return_results(result_impl, result_built)
-        print(result1)
-        print(result2)
         return result1, result2
+    
 def crossval_multi(dataset, linear_non_separable, kernel):
     with open('D:\LetnjiSemestar\PRML\ProjekatSVM\PRML-Project\prml_project\prml_project_app\code\crossvalidation_files\\'+dataset.lower()+'_crossval.txt', 'r') as iris:
         line_number = 0
@@ -37,8 +36,6 @@ def crossval_multi(dataset, linear_non_separable, kernel):
         result_impl = choosen_impl.split('|')
         result_built = built_in_line.split('|')
         result1, result2 = return_results(result_impl, result_built)
-        print(result1)
-        print(result2)
         return result1, result2
 
 def return_results(line_impl, line_built):

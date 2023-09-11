@@ -33,6 +33,7 @@ def load_iris_multi():
 def load_wines_binary():
     wines = pd.read_csv('D:\LetnjiSemestar/PRML/ProjekatSVM/PRML-Project/prml_project/prml_project_app/code/wine.csv')
     wines['quality'].replace({'bad': 0 , 'good': 1}, inplace=True)
+    print(wines.dtypes)
     X = wines.drop(["quality"], axis = 1).values
     scaler = StandardScaler()
     X = scaler.fit_transform(X)
@@ -40,6 +41,7 @@ def load_wines_binary():
     y = wines["quality"].values
     y = (y == 0).astype(int) * 2 - 1
     X_train, X_test, y_train, y_test  = train_test_split(X, y, test_size=0.25)
+    print(y_train.shape)
     crossval = [X, y]
     return X_train, X_test, y_train, y_test, crossval
 
@@ -52,6 +54,7 @@ def load_wines_multi():
     print(X.shape)
     y = wines["quality"].values
     X_train, X_test, y_train, y_test  = train_test_split(X, y, test_size=0.25)
+    print(y_train.shape)
     crossval = [X, y]
     return X_train, X_test, y_train, y_test, crossval
 
@@ -152,5 +155,4 @@ def load_digits_for_vizualization():
     return digits
 
 if __name__ == '__main__':
-    pass
-    #load_digits()
+    load_wines_binary()

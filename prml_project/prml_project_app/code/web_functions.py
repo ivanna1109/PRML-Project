@@ -21,8 +21,8 @@ def binary_svm(dataset = None, linear=False, linear_non_sep=False, kernel = Fals
     built_in_kernel_svm = svm.SVC(C=1.0, kernel='poly', coef0=1, gamma=1, degree=3)
     crossval_mean_scores, crossval_scores = crossval_result.crossval_binary(dataset, linear, linear_non_sep, kernel)
     X_train, X_test, y_train, y_test, crossval = dataset_loading(dataset, False)
-    print(type(X_train))
-    print(type(y_train))
+    print(X_train.shape)
+    print(y_train.shape)
     #print("\n******************************Crossvalidation for binary SVM*******************************\n")
     #metrics.cross_val_scores(linear_svm, linear_non_sep_svm, kernel_svm, built_in_kernel_svm, crossval)
     list_for_linear = None; list_for_non_sep = None; list_for_kernel = None; 

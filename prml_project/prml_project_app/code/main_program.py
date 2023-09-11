@@ -12,7 +12,6 @@ def get_results_for_dataset(dataset, binary, multi):
     list2_of_crossvals = []
     if (binary =='Linear'):
         list_of_impl, list_of_conf_matrix, list1_of_crossvals, list2_of_crossvals = webf.binary_svm(dataset, linear=True)
-        print(list_of_conf_matrix)
     elif (binary =='Linear Non Separable'):
         list_of_impl, list_of_conf_matrix, list1_of_crossvals, list2_of_crossvals = webf.binary_svm(dataset, linear_non_sep=True)
     elif (binary =='Kernel'):

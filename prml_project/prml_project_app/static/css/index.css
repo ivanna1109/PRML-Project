@@ -59,7 +59,7 @@ body {
     position: fixed; /* Postavite poziciju na fiksnu */
     bottom: 0; /* Postavite ga na dno stranice */
     left: 0; /* Postavite ga na levi rub stranice */
-    height: 20px;
+    height: 50px;
     width: 100%; /* Širina 100% kako bi popunio celu širinu ekrana */
     background-color: var(--header-footer); /* Boja pozadine */
     color: black; /* Boja teksta */

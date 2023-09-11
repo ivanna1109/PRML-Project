@@ -107,6 +107,17 @@ def wine_distributionPlot():
     ax = fig.gca()
     wines.hist(ax = ax)
     plt.show()
+
+def wine_count_plot():
+    wines = dsl.load_wine_for_visualization()
+    plt.figure(figsize=(8, 6))
+    sns.countplot(data=wines, x='quality')    
+    plt.grid()
+    plt.title('Count of Good and Bad')
+    plt.xlabel('Quality')
+    plt.ylabel('Count')
+    plt.xticks([0, 1], ['No', 'Yes'])
+    plt.show()
     
 #-----------------------------------------TITANIC VISUALIZATION--------------------------------------
 def titanic_plot1():
@@ -191,9 +202,10 @@ if __name__ == '__main__':
     #iris_histogram()
     #iris_pairplot()
     #wine_graphCorellation()
+    wine_count_plot()
     #wine_distributionPlot()
     #wine_distribution('free sulfur dioxide', 'total sulfur dioxide')
     #titanic_plot4()
     #digits_plot1()
     #digits_images()
-    digits_corr()
+    #digits_corr()

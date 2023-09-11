@@ -109,7 +109,6 @@
   <h4>Confusion matrices</h4>
   <table class="result_table">
     <tr>
-      <th></th>
       {% for i in number_of_algorithms %}
       <th>
         {{i}}. model
@@ -117,7 +116,6 @@
     {% endfor %}
   </tr>
     <tr>
-      <td></td>
       {% for matrix in confusion_matrices %}
       <td>
         {{ matrix | safe }}
